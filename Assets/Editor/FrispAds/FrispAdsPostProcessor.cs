@@ -33,7 +33,7 @@ public class FrispAdsPostProcessor {
 
 		char divider = Path.DirectorySeparatorChar;
 
-		DirectoryInfo sourceFolder = new DirectoryInfo(projectParent.ToString() + divider + srcName);
+		DirectoryInfo sourceFolder = new DirectoryInfo(projectParent.ToString() + divider + "Assets" + divider + srcName);
 		DirectoryInfo destinationFolder = new DirectoryInfo(path + divider + "Frameworks");
 
 		// Copy Frameworks to 
