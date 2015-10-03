@@ -7,11 +7,13 @@ namespace FrispAds {
 	using AppleAd = FrispAds.AdUnits.AppleAd;
 
 	public class FrispAd {
-		#if UNITY_IPHONE || UNITY_EDITOR
+		#if UNITY_IPHONE
 		private static AdUnit iAdBanner = null;
 		#endif
 
+		#if UNITY_IPHONE || UNITY_ANDROID
 		private static AdUnit adMobBanner = null;
+		#endif
 
 		public FrispAd() {
 			#if UNITY_IPHONE
@@ -28,7 +30,7 @@ namespace FrispAds {
 		
 		// Prioritize iAd over adMob as iAd pays more
 		public void ShowBanner () {
-			#if UNITY_IPHONE
+			#if UNITY_IPHONE && !UNITY_EDITOR
 			if (iAdBanner.Loaded ()) {
 				adMobBanner.Hide ();
 				iAdBanner.Show ();

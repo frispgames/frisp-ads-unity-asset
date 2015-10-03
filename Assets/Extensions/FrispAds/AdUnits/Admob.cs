@@ -4,13 +4,15 @@ using System.Collections;
 using GoogleMobileAds.Api;
 
 namespace FrispAds.AdUnits {
-	public class Admob : AdUnit {
+	public class Admob : MonoBehaviour, AdUnit  {
 
 		private BannerView banner = null;
 		private bool loaded = false;
 		private bool showBanner = false;
+		private readonly Configuration config;
 
 		public Admob() {
+			config = Resources.Load<Configuration>("FrispAds/Configuration");
 			banner = new BannerView (AdMobID (), AdSize.SmartBanner, AdPosition.Bottom);
 			banner.AdLoaded += OnBannerLoaded;
 			RequestBanner ();
@@ -44,9 +46,10 @@ namespace FrispAds.AdUnits {
 
 		private string AdMobID() {
 			if (Application.platform == RuntimePlatform.Android) {
-				return "ca-app-pub-1577026775528950/8069642828";
+				return config.androidAdmobId;
 			} else {
-				return "ca-app-pub-1577026775528950/3639443229";
+				print(config);
+				return config.appleAdmobId;
 			}
 		}
 	}
