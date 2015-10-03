@@ -30,4 +30,5 @@ public class Ad : MonoBehaviour {
 	}
 }
 ```
+* Add your Admob id's into the configuration asset which can be found under ``Resources/FrispAds/Configuration`` all you need to do is click on the asset and fill out the fields in the sidebar.
 
