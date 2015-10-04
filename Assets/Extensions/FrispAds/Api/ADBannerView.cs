@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 using System;
 using System.Collections;
-#if UNITY_IPHONE || UNITY_EDITOR
-
 using System.Runtime.InteropServices;
 
 namespace FrispAds.Api {
-	public class ADBannerView : MonoBehaviour  {
+	public class ADBannerView : MonoBehaviour {
 
 		[DllImport ("__Internal")]
 		private static extern void _AppleAdCreateBannerAd ();
@@ -40,7 +38,7 @@ namespace FrispAds.Api {
 		}
 
 		public void Hide() {
-			_AppleAdHideAd();
+			_AppleAdHideAd ();
 		}
 
 		public void CreateBanner() {
@@ -76,4 +74,3 @@ namespace FrispAds.Api {
 		}
 	}
 }
-#endif

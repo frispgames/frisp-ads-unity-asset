@@ -1,14 +1,14 @@
 ﻿
 using UnityEngine;
 using System.Collections;
-#if UNITY_IPHONE || UNITY_EDITOR
+
 namespace FrispAds.AdUnits {
 
 	using ADBannerView = FrispAds.Api.ADBannerView;
 
 	public class AppleAd : AdUnit {
 		
-		private ADBannerView banner = null;
+		private ADBannerView banner;
 		private bool showAd = true;
 		private bool loaded = false;
 		
@@ -45,4 +45,3 @@ namespace FrispAds.AdUnits {
 		}
 	}
 }
-#endif
