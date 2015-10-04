@@ -5,20 +5,16 @@ namespace FrispAds {
 	using AdUnit = FrispAds.AdUnits.AdUnit;
 	using Admob = FrispAds.AdUnits.Admob;
 	using AppleAd = FrispAds.AdUnits.AppleAd;
-	using FakeAdUnit = FrispAds.AdUnits.AppleAd;
+	using FakeAdUnit = FrispAds.AdUnits.FakeAdUnit;
 
-	public class FrispAd {
+	public class FrispAd : MonoBehaviour {
 
-		private static AdUnit iAdBanner = new FakeAdUnit ();
-		private static AdUnit adMobBanner = new FakeAdUnit ();
+		private static AdUnit iAdBanner = null;
+		private static AdUnit adMobBanner = null;
 
 		public FrispAd() {
-			if (iAdBanner == null && isAppleDevice ()) {
-				iAdBanner = new AppleAd();
-			}
-			if (adMobBanner == null && isAppleDevice () || isAndroidDevice ()) {
-				adMobBanner = new Admob();
-			}
+			if (iAdBanner == null) iAdBanner = iAdUnit();
+			if (adMobBanner == null) adMobBanner = admobAdUnit();
 		}
 		
 		// Prioritize iAd over adMob as iAd pays more
@@ -37,12 +33,36 @@ namespace FrispAds {
 			iAdBanner.Hide ();
 		}
 
+		private AdUnit iAdUnit() {
+			if (isAppleDevice ()) {
+				return new AppleAd ();
+			} else {
+				return new FakeAdUnit ();
+			}
+		}
+
+		private AdUnit admobAdUnit() {
+			if (isAppleDevice () || isAndroidDevice()) {
+				return new Admob ();
+			} else {
+				return new FakeAdUnit ();
+			}
+		}
+
 		private bool isAndroidDevice() {
-			return Application.platform == RuntimePlatform.Android;
+			#if UNITY_ANDROID && !UNITY_EDITOR
+				return true;
+			#else
+				return false;
+			#endif
 		}
 
 		private bool isAppleDevice() {
-			return Application.platform == RuntimePlatform.IPhonePlayer;
+			#if UNITY_IPHONE && !UNITY_EDITOR
+				return true;
+			#else
+				return false;
+			#endif
 		}
 	}
 }

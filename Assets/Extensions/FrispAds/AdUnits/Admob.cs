@@ -6,7 +6,7 @@ using GoogleMobileAds.Api;
 namespace FrispAds.AdUnits {
 	public class Admob : MonoBehaviour, AdUnit {
 
-		private BannerView banner;
+		private BannerView banner = null;
 		private bool loaded = false;
 		private bool showBanner = false;
 		private readonly Configuration config;
