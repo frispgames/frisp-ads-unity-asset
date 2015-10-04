@@ -19,7 +19,6 @@ public class FrispAdsPostProcessor {
 
 		UnityEngine.Debug.Log("PostProcessor: Copying frameworks to xcode");
 
-		string srcName = "AppleFrameworks";
 		string buildName = Path.GetFileNameWithoutExtension(path);
 		string pbxprojPath = path + "/Unity-iPhone.xcodeproj/project.pbxproj";
 
@@ -33,11 +32,7 @@ public class FrispAdsPostProcessor {
 
 		char divider = Path.DirectorySeparatorChar;
 
-		DirectoryInfo sourceFolder = new DirectoryInfo(projectParent.ToString() + divider + "Assets" + divider + srcName);
 		DirectoryInfo destinationFolder = new DirectoryInfo(path + divider + "Frameworks");
-
-		// Copy Frameworks to 
-		CopyAll(sourceFolder, destinationFolder);
 	
 		foreach(DirectoryInfo file in destinationFolder.GetDirectories()) {
 			UnityEngine.Debug.Log("PostProcessor: Adding file to build - " + file.Name);
@@ -70,6 +65,7 @@ public class FrispAdsPostProcessor {
 		// Copy each subdirectory using recursion.
 		foreach (DirectoryInfo diSourceSubDir in source.GetDirectories())
 		{
+			UnityEngine.Debug.Log(diSourceSubDir);
 			DirectoryInfo nextTargetSubDir = target.CreateSubdirectory(diSourceSubDir.Name);
 			CopyAll(diSourceSubDir, nextTargetSubDir);
 		}
