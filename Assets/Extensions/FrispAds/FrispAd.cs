@@ -9,15 +9,15 @@ namespace FrispAds {
 
 	public class FrispAd {
 
-		private static AdUnit iAdBanner = new FakeAdUnit();
-		private static AdUnit adMobBanner = new FakeAdUnit();
+		private static AdUnit iAdBanner = new FakeAdUnit ();
+		private static AdUnit adMobBanner = new FakeAdUnit ();
 
 		public FrispAd() {
-			if (iAdBanner == null && isAppleDevice()) {
-				iAdBanner = AppleAd();
+			if (iAdBanner == null && isAppleDevice ()) {
+				iAdBanner = new AppleAd();
 			}
-			if (adMobBanner == null && isAppleDevice() || isAndroidDevice()) {
-				adMobBanner = Admob();
+			if (adMobBanner == null && isAppleDevice () || isAndroidDevice ()) {
+				adMobBanner = new Admob();
 			}
 		}
 		
