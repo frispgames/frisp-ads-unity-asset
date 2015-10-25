@@ -2,10 +2,10 @@ using UnityEngine;
 using System.Collections;
 namespace FrispAds {
 
-	using AdUnit = FrispAds.AdUnits.AdUnit;
-	using Admob = FrispAds.AdUnits.Admob;
-	using AppleAd = FrispAds.AdUnits.AppleAd;
-	using FakeAdUnit = FrispAds.AdUnits.FakeAdUnit;
+	using AdUnit = AdUnits.AdUnit;
+	using Admob = AdUnits.Admob;
+	using AppleAd = AdUnits.AppleAd;
+	using FakeAdUnit = AdUnits.FakeAdUnit;
 
 	public class FrispAd : MonoBehaviour {
 
