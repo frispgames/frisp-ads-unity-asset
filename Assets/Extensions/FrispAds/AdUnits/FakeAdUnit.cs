@@ -12,7 +12,7 @@ namespace FrispAds.AdUnits {
 		}
 
 		public bool Loaded() {
-			return true;
+			return false;
 		}
 	}
 }
