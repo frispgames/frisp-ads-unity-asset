@@ -11,6 +11,7 @@ I have set the repository up as a unity project. When adding features you will n
 
 * Download the [unity package](https://github.com/frispgames/frisp-ads-unity-asset/releases) and import it into your unity project.
 * Download the [google ads asset](https://github.com/googleads/googleads-mobile-unity/releases) and import it into your unity project
+* Add the `GoogleMobileAds.framework` to your root directory in Unity from [here](https://developers.google.com/admob/ios/download#downloadios)
 * Create a class like below and attach it to an empty game object:
 ```CSHARP
 using UnityEngine;
