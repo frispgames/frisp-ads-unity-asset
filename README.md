@@ -1,7 +1,7 @@
 # Frisp Ads
 Unity asset that provides the ability to serve iAd and admob ads. With iPhone devices it favours iAd over admob because iAd pays better and with Android devices only admob is supported.
 
-**Currently landscape is the only supported orientation.**
+**Supports landscape and portrait but only if it's fixed to one or the other. It's not dynamic yet.**
 
 ### Development
 
