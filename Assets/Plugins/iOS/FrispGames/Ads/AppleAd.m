@@ -12,17 +12,20 @@
 - (void) CreateBanner {
   [self SetupBanner];
   
-  UIViewController *rootViewController =  UnityGetGLViewController();
+  UIViewController *rootViewController =  [[[[UIApplication sharedApplication]delegate] window] rootViewController];
   
-  [self banner].requiredContentSizeIdentifiers = [NSSet setWithObject:ADBannerContentSizeIdentifierLandscape];
-  [self banner].currentContentSizeIdentifier = ADBannerContentSizeIdentifierLandscape;
+  NSSet *contentSizeSet = [NSSet setWithObjects:ADBannerContentSizeIdentifierLandscape,ADBannerContentSizeIdentifierPortrait, nil];
+
+  [[self banner] setRequiredContentSizeIdentifiers: contentSizeSet];
+
+  [self resetContentSize: rootViewController.interfaceOrientation];
   
   [self banner].frame = CGRectMake(0,
                                    rootViewController.view.frame.size.height - _banner.frame.size.height,
                                    [self banner].frame.size.width,
                                    [self banner].frame.size.height);
   
-  [[rootViewController view] addSubview:[self banner]];
+  [[rootViewController view] addSubview: [self banner]];
   
   [self banner].hidden = true;
 }

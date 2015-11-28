@@ -9,6 +9,7 @@
 - (void) CreateBanner;
 - (void) ShowAd;
 - (void) HideAd;
+- (void) resetContentSize:(UIInterfaceOrientation) orientation;
 - (BOOL) AdLoaded;
 
 @end
