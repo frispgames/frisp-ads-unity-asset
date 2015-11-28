@@ -42,6 +42,14 @@
   return [self banner].bannerLoaded;
 }
 
+- (void) resetContentSize:(UIInterfaceOrientation) orientation {
+    if (UIInterfaceOrientationIsLandscape(orientation)) {
+    [[self banner] setCurrentContentSizeIdentifier:ADBannerContentSizeIdentifierLandscape];
+  } else {
+    [[self banner] setCurrentContentSizeIdentifier:ADBannerContentSizeIdentifierPortrait];
+  }
+}
+
 -(void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
   if(error != nil) {
        NSLog(@"didFailToReceiveAdWithError %@", error.description);
