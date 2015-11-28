@@ -12,7 +12,7 @@ namespace FrispGames.Ads.AdUnits {
 		private readonly Configuration config;
 
 		public Admob() {
-			config = Resources.Load<Configuration>("FrispAds/Configuration");
+			config = Resources.Load<Configuration>("FrispGames/Ads/Configuration");
 			banner = new BannerView (AdMobID (), AdSize.SmartBanner, AdPosition.Bottom);
 			banner.AdLoaded += OnBannerLoaded;
 			RequestBanner ();
