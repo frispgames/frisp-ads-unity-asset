@@ -16,21 +16,23 @@ I have set the repository up as a unity project. When adding features you will n
 using UnityEngine;
 using System.Collections;
 
+using FrispAd = FrispGames.Ads.FrispAd;
+
 public class Ad : MonoBehaviour {
 
-	private FrispAds.FrispAd adController;
+	private FrispAd adController;
 
 	// Use this for initialization
 	void Start () {
-		adController = new FrispAds.FrispAd();
+		adController = new FrispAd();
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-	  // Logic around how you want to show and hide your banner
 		adController.ShowBanner ();
 	}
 }
+
 ```
-* Add your Admob id's into the configuration asset which can be found under ``Resources/FrispAds/Configuration`` all you need to do is click on the asset and fill out the fields in the sidebar.
+* Add your Admob id's into the configuration asset which can be found under ``Resources/FrispGames/Ads/Configuration`` all you need to do is click on the asset and fill out the fields in the sidebar.
 
